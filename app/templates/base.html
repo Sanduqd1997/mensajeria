@@ -4,18 +4,18 @@
     <title>{% block title %}{% endblock %} - Myapp</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://kit.fontawesome.com/5f26af2ba0.js" crossorigin="anonymous"></script>
   </head>
   <body class="max-w-lg mx-auto rounded-md">
     <nav class="rounded-t-md prose">
-      <h1 class="m-0 ml-1">Demo</h1>
+      <h1 class="m-0 ml-1"><a href="/index" ><i class="fa-solid fa-envelope"></i></a>&nbsp;</i>Mail</h1>
       <ul class="m-0">
         {% if g.user %}
           <li><span>{{ g.user['username'] }}</span>
-          <li><a href="{{ url_for('auth.logout') }}">Logout</a>
+          <li><a href="{{ url_for('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>       
         {% else %}
-          <li><a href="{{ url_for('auth.register') }}">Register</a>
-          <li><a href="{{ url_for('auth.login') }}">Login</a>
-          <li><a href="{{ url_for('auth.forgot') }}">Forgot your password?</a>
+        <li><a id="registro" href="{{ url_for('auth.register') }}"><i class="fa-solid fa-pen-to-square"></i>Register</a>
+        <li><a id="ingreso" href="{{ url_for('auth.login') }}"><i class="fa-solid fa-circle-user"></i>Login</a>
         {% endif %}
       </ul>
     </nav>
@@ -27,6 +27,8 @@
         <div class="flash rounded-md bg-indigo-300 border-indigo-600 text-indigo-800">{{ message }}</div>
       {% endfor %}
       {% block content %}{% endblock %}
+
     </section>
+    
   </body>
 </html>

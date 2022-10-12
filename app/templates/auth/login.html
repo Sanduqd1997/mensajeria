@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block header %}
   <h2 class="text-slate-700 my-2">{% block title %}Login{% endblock %}</h2>
 {% endblock %}
@@ -11,6 +12,7 @@
     <label for="password">Password</label>
     <input type="password" name="password" id="password" class="rounded-md mb-6" required>
     <input type="submit" value="Log In" class="w-full bg-indigo-500 text-white rounded-md py-2 cursor-pointer">
-  </form>
-   
+  </form>  
+  <center><a href="{{ url_for('auth.forgot') }}">Forgot your password?</a></center>
+   <script src="../../static/login.js"></script>
 {% endblock %}
